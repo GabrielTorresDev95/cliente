@@ -2,9 +2,9 @@
   "name": "mercado-pagobackend",
   "version": "1.0.0",
   "type": "module",
-  "main": "server.js",
+  "main": "minhaapi.cjs",
   "scripts": {
-    "start": "node server.js",
+    "start": "node minhaapi.cjs",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
