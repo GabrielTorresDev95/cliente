@@ -11,7 +11,7 @@ const router = express.Router(); // Cria um router Express
 // Configuração CORS (você pode manter aqui SE precisar de configurações específicas para essas rotas)
 const corsOptions = {
     origin: process.env.NODE_ENV === 'production'
-        ? ['https://seusite.com'] // Substitua pelo seu domínio real
+        ? ['https://cliente-c9lqgiw84-gabriels-projects-a95fe2cc.vercel.app/'] // Substitua pelo seu domínio real
         : ['http://localhost:8080'], // Porta do seu frontend Vue
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
