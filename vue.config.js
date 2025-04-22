@@ -17,7 +17,7 @@ module.exports = defineConfig({
     port: 8080,          // Porta do servidor local
     hot: true,           // Habilita Hot Module Replacement
     open: true,          // Abre o navegador automaticamente
-    disableHostCheck: true, // Adicionado para evitar o erro "Invalid Host header"
+    allowedHosts: 'all', // Permite qualquer host (equivalente ao disableHostCheck)
     client: {
       overlay: {         // Configurações para erros no navegador
         warnings: false,
@@ -25,8 +25,8 @@ module.exports = defineConfig({
       }
     }
   },
-  
-  // Outras configurações úteis:
-  lintOnSave: process.env.NODE_ENV !== 'production', // Habilita ESLint apenas em desenvolvimento
-  productionSourceMap: false // Desativa source maps em produção para melhor performance
+
+  // Outras configurações
+  lintOnSave: process.env.NODE_ENV !== 'production',
+  productionSourceMap: false
 })
