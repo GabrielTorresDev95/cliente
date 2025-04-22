@@ -17,6 +17,7 @@ module.exports = defineConfig({
     port: 8080,          // Porta do servidor local
     hot: true,           // Habilita Hot Module Replacement
     open: true,          // Abre o navegador automaticamente
+    disableHostCheck: true, // Adicionado para evitar o erro "Invalid Host header"
     client: {
       overlay: {         // Configurações para erros no navegador
         warnings: false,
