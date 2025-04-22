@@ -36,7 +36,7 @@ export default {
     async loginAdmin() {
       this.error = null;
       try {
-        const response = await axios.post(`https://cliente-c9lqgiw84-gabriels-projects-a95fe2cc.vercel.app`, {
+        const response = await axios.post(`https://cliente-4.onrender.com`, {
           username: this.username,
           password: this.password,
         });
