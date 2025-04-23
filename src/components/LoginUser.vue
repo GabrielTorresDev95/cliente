@@ -36,7 +36,7 @@ export default {
     async loginAdmin() {
       this.error = null;
       try {
-        const response = await axios.post(`https://cliente-5.onrender.com`, {
+        const response = await axios.post(`https://cliente-5.onrender.com/admin/login`, {
           username: this.username,
           password: this.password,
         });
