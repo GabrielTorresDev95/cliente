@@ -10,10 +10,11 @@ const jwtSecret = process.env.JWT_SECRET || 'SEU_SEGREDO_SEGURO';
 
 // ✅ Criação correta do pool de conexão
 const pool = mysql.createPool({
-  host: 'localhost',
-  user: 'root',
-  password: 'password', // substitua pela sua senha do MySQL
-  database: 'databasePF' // substitua pelo nome do seu banco
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME, // substitua pelo nome do seu banco
 });
 
 // 🔐 Rota de Login de Administrador
