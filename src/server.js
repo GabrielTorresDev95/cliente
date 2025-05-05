@@ -28,7 +28,13 @@ app.post('/login', (req, res) => {
 });
 
 // Porta (padrão: Railway usa process.env.PORT)
-const PORT = process.env.PORT || 3000;
+//const PORT = process.env.PORT || 3000;
+//app.listen(PORT, () => {
+  //console.log(`Servidor rodando na porta ${PORT}`);
+//});
+// Porta fixa na 10000
+const PORT = 10000;
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });
+
