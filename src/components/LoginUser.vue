@@ -40,7 +40,7 @@ export default {
           username: this.username,
           password: this.password,
         });
-
+      console.log(responde.data);
         // Verificar se a resposta foi bem-sucedida (status code 2xx)
         if (response.status >= 200 && response.status < 300) {
           // Assumindo que o token JWT é retornado no campo 'token' do corpo da resposta
