@@ -35,6 +35,8 @@ export default {
   methods: {
     async loginAdmin() {
       this.error = null;
+  console.log("Tentando logar com:", this.username);
+      
       try {
         const response = await axios.post(`https://cliente-5.onrender.com/login`, {
           username: this.username,
@@ -43,22 +45,26 @@ export default {
       console.log('Resposta da API:', response.data); 
         // Verificar se a resposta foi bem-sucedida (status code 2xx)
         if (response.status >= 200 && response.status < 300) {
+          
           // Assumindo que o token JWT é retornado no campo 'token' do corpo da resposta
           const token = response.data.token;
-  
+          console.log("Token recebido:", token);
+          
           if (token) {
             // Armazenar o token (localStorage é um exemplo, mas cookies HTTP são mais seguros)
             localStorage.setItem('adminToken', token);
-
+            console.log("Token armazenado com sucesso.");
             // Redirecionar para a página do dashboard administrativo APÓS o login bem-sucedido
             this.$router.push(this.$route.query.redirect || '/admin/dashboard');
 
           } else {
             this.error = 'Token de autenticação não recebido.';
+            console.warn("Token não veio na resposta.");
           }
         } else {
           // A resposta não foi bem-sucedida, verificar se há uma mensagem de erro no corpo
           this.error = response.data && response.data.message ? response.data.message : 'Erro ao fazer login.';
+          console.warn("Erro de status HTTP:", response.status);
         }
 
       } catch (error) {
