@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 });
 
 // Substitua isso com suas rotas reais de login/admin
-app.post('/login', (req, res) => {
+app.post('/admin/login', (req, res) => {
   const { user, senha } = req.body;
   if (user === 'Administrador' && senha === 'novaSenha123') {
     res.json({ mensagem: 'Login bem-sucedido!' });
