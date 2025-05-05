@@ -17,7 +17,7 @@ const appRoutes = require('./app.cjs');
 const indexRoutes = require('./index.cjs');
 const serverRoutes = require('./server.cjs');
 
-console.log('Tentando usar /api/admin com:', loginAdminRoutes);
+console.log('Tentando usar /api/login com:', loginAdminRoutes);
 app.use('/api/login', loginAdminRoutes);
 
 console.log('Tentando usar /api/dashboard com:', adminDashboardRoutes);
