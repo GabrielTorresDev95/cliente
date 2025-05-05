@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 const mysql = require('mysql2/promise');
 
 const router = express.Router();
-const jwtSecret = process.env.JWT_SECRET || 'SEU_SEGREDO_SEGURO';
+const jwtSecret = process.env.JWT_SECRET || 'ASOACOASaskodaksoASOPAKSDOaoxakOSKOPsdkOPD';
 
 // ✅ Criação correta do pool de conexão
 const pool = mysql.createPool({
