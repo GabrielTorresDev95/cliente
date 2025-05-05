@@ -18,11 +18,12 @@ const pool = mysql.createPool({
 });
 
 // 🔐 Rota de Login de Administrador
+// rota de login do administrador
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
 
   try {
-    // Busca o administrador pelo nome (ajuste conforme a coluna real)
+    // busca o admin pelo nome
     const [admins] = await pool.execute('SELECT * FROM admins WHERE nome = ?', [username]);
     const admin = admins[0];
 
@@ -30,15 +31,18 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ message: 'Credenciais inválidas.' });
     }
 
-    // Compara a senha enviada com a armazenada (já hash)
+    // verifica a senha
     const passwordMatch = await bcrypt.compare(password, admin.senha);
 
     if (passwordMatch) {
+      // cria o token JWT
       const token = jwt.sign(
         { adminId: admin.id, username: admin.nome },
         jwtSecret,
         { expiresIn: '1h' }
       );
+      
+      // envia o token na resposta
       return res.json({ token });
     } else {
       return res.status(401).json({ message: 'Credenciais inválidas.' });
@@ -48,5 +52,6 @@ router.post('/login', async (req, res) => {
     return res.status(500).json({ message: 'Erro ao fazer login.' });
   }
 });
+
 
 module.exports = router;
