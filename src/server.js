@@ -19,8 +19,8 @@ app.get('/', (req, res) => {
 
 // Substitua isso com suas rotas reais de login/admin
 app.post('/login', (req, res) => {
-  const { email, senha } = req.body;
-  if (email === 'admin@teste.com' && senha === '1234') {
+  const { user, senha } = req.body;
+  if (user === 'Administrador' && senha === 'novaSenha123') {
     res.json({ mensagem: 'Login bem-sucedido!' });
   } else {
     res.status(401).json({ erro: 'Credenciais inválidas' });
