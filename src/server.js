@@ -4,7 +4,7 @@ const app = express();
 
 // Middleware para habilitar CORS
 app.use(cors({
-  origin: 'https://cliente-4.onrender.com', // Altere para o domínio do seu frontend
+  origin: 'https://cliente-5.onrender.com', // Altere para o domínio do seu frontend
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
