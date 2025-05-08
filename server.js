@@ -4,7 +4,7 @@ const app = express();
 
 // Middleware para habilitar CORS
 app.use(cors({
-  origin: 'https://cliente-4.onrender.com', // Altere para o domínio do seu frontend
+  origin: 'https://cliente-5.onrender.com', // Altere para o domínio do seu frontend
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 });
 
 // Substitua isso com suas rotas reais de login/admin
-app.post('/login', (req, res) => {
+app.post('admin/login', (req, res) => {
   const { email, senha } = req.body;
   if (email === 'admin@teste.com' && senha === '1234') {
     res.json({ mensagem: 'Login bem-sucedido!' });
