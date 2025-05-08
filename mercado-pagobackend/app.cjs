@@ -10,23 +10,24 @@ const router = express.Router(); // Cria um router Express
 
 // Configuração CORS (você pode manter aqui SE precisar de configurações específicas para essas rotas)
 const corsOptions = {
-    origin: process.env.NODE_ENV === 'production'
-        ? ['https://cliente-4.onrender.com'] // Substitua pelo seu domínio real
-        : ['http://localhost:8080'], // Porta do seu frontend Vue
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true // Se estiver usando cookies/sessões
+  origin: (origin, callback) => {
+    if (!origin) return callback(null, true); // Permite requisições sem origem (ex: curl)
+    if (process.env.NODE_ENV === 'production') {
+      if (origin === 'https://cliente-4.onrender.com') {
+        callback(null, true);
+      } else {
+        callback(new Error('Origin não permitido'), false);
+      }
+    } else {
+      // Development
+      if (origin === 'http://localhost:8080') {
+        callback(null, true);
+      } else {
+        callback(new Error('Origin não permitido'), false);
+      }
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
 };
-
-router.use(cors(corsOptions)); // Aplica as configurações ao router
-router.use(express.json()); // Aplica o middleware json ao router
-
-// Rotas
-router.use('/admin', loginAdminRoutes);
-router.use('/admin', adminDashboardRoutes);
-router.use('/minhaapi', minhaApiRoutes); // Monta as rotas da "minha API"
-router.get('/test-app', (req, res) => {
-    res.send('Rota de teste do app.cjs dentro da API central!');
-});
-
-module.exports = router; // Exporta o router
