@@ -21,12 +21,6 @@ app.use('/api/admin', loginAdminRoutes);
 console.log('Tentando usar /api/dashboard com:', adminDashboardRoutes);
 // app.use('/api/dashboard', adminDashboardRoutes); // Você já montou isso dentro de indexRoutes
 
-console.log('Tentando usar /api/cards com:', cardsRouter);
-app.use('/api/cards', cardsRouter);
-
-console.log('Tentando usar /api/users com:', usersRouter);
-app.use('/api/users', usersRouter);
-
 console.log('Tentando usar /api/app com:', appRoutes);
 app.use('/api/app', appRoutes);
 
