@@ -29,7 +29,7 @@ export default {
       username: '',
       password: '',
       error: null,
-      ngrokURL: 'http://localhost:3000'
+      ngrokURL: 'http://localhost:10000'
     };
   },
   methods: {
