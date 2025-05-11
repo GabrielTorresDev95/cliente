@@ -11,8 +11,6 @@ app.use(express.json());
 // Importe os outros routers
 const loginAdminRoutes = require('./loginAdmin.cjs');
 const adminDashboardRoutes = require('./adminDashboardRoutes.cjs');
-const cardsRouter = require('./controller/cardControllers.cjs');
-const usersRouter = require('./controller/userControllers.cjs');
 const appRoutes = require('./app.cjs');
 const indexRoutes = require('./index.cjs');
 const serverRoutes = require('./server.cjs');
