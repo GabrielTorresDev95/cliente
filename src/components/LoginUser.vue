@@ -38,7 +38,7 @@ export default {
   console.log("Tentando logar com:", this.username);
       
       try {
-        const response = await axios.post(`${API_URL}/login`, {
+        const response = await axios.post(`https://cliente-4.onrender.com/login`, {
           username: this.username,
           password: this.password,
         });
