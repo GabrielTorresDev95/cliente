@@ -2,9 +2,9 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
-// Middleware para habilitar CORS
+// Middleware para habilitar CORS (ajuste para seu frontend render.com)
 app.use(cors({
-  origin: 'https://cliente-5.onrender.com', // Altere para o domínio do seu frontend
+  origin: 'https://cliente-5.onrender.com', // Domínio do seu site estático
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
@@ -17,24 +17,20 @@ app.get('/', (req, res) => {
   res.send('Servidor funcionando com CORS!');
 });
 
-// Substitua isso com suas rotas reais de login/admin
+// Rota de login com nomes de campos corrigidos e retorno de token
 app.post('/login', (req, res) => {
-  const { user, senha } = req.body;
-  if (user === 'Administrador' && senha === 'novaSenha123') {
-    res.json({ mensagem: 'Login bem-sucedido!' });
+  const { username, password } = req.body;
+
+  if (username === 'Administrador' && password === 'novaSenha123') {
+    // Retorna um token fake (substitua por JWT real no futuro)
+    res.json({ token: 'fake-jwt-token' });
   } else {
-    res.status(401).json({ erro: 'Credenciais inválidas' });
+    res.status(401).json({ message: 'Credenciais inválidas' });
   }
 });
 
-// Porta (padrão: Railway usa process.env.PORT)
-//const PORT = process.env.PORT || 3000;
-//app.listen(PORT, () => {
-  //console.log(`Servidor rodando na porta ${PORT}`);
-//});
-// Porta fixa na 10000
-const PORT = 10000;
+// Porta dinâmica para funcionar no Render
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });
-
